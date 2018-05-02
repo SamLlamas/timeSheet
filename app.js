@@ -58,24 +58,24 @@ $("#add-user").on("click", function (event) {
     // console.log(start.startDate);
     // console.log(rate.monthlyRate);
 });
-database.ref().on("child_added", function(childSnapshot) {
+// database.ref().on("child_added", function(childSnapshot) {
 
-    console.log(childSnapshot.val());  
+//     console.log(childSnapshot.val());  
 
-    //Logging Employee Info
-    console.log(childSnapshot.val().name);
-    console.log(childSnapshot.val().role);
-    console.log(childSnapshot.val().start);
-    console.log(childSnapshot.val().rate);
+//     //Logging Employee Info
+//     console.log(childSnapshot.val().name);
+//     console.log(childSnapshot.val().role);
+//     console.log(childSnapshot.val().start);
+//     console.log(childSnapshot.val().rate);
 
-    //Add Employee Info into the table 
-    $("#table-headers>tbody").append("<tr><td>" + (childSnapshot.val().name) + "</td><td>" + (childSnapshot.val().role) + "</td><td>" +
-    (childSnapshot.val().start) + "</td><td>" + monthsWorked + "</td><td>" + (childSnapshot.val().rate) + "</td><td>" + totalBilled + "</td></tr>");
+//     //Add Employee Info into the table 
+//     $("#table-headers>tbody").append("<tr><td>" + (childSnapshot.val().name) + "</td><td>" + (childSnapshot.val().role) + "</td><td>" +
+//     (childSnapshot.val().start) + "</td><td>" + monthsWorked + "</td><td>" + (childSnapshot.val().rate) + "</td><td>" + totalBilled + "</td></tr>");
         
 
 
     
-});
+// });
 
 
     

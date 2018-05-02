@@ -78,8 +78,8 @@
 
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="start-input">Start Date (DD/MM/YY - ex:01/01/89)</label>
-                    <input type="text" class="form-control" id="start-input">
+                    <label for="start-input">Start Date (DD/MM/YYYY - ex: 01/01/1989)</label>
+                    <input type="date" class="form-control" id="start-input">
                 </div>
             </div>
 
@@ -92,10 +92,11 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="add-user">Submit</button>
         </form>
     </div>
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
 
