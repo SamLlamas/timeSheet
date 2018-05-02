@@ -22,7 +22,7 @@ var startFormat = "MM/DD/YYYY";
 var convertedDate = moment(startDate, startFormat);
 var monthsWorked = Math.abs(moment(convertedDate).diff(moment(), "months"));
 var monthlyRate = 2000;
-var totalBilled = (monthlyRate * monthsWorked);
+var totalBilled = ("$ " + (monthlyRate * monthsWorked));
 
 
 // Capture Button Click
