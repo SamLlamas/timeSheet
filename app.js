@@ -24,15 +24,10 @@ var monthsWorked = Math.abs(moment(convertedDate).diff(moment(), "months"));
 var monthlyRate = 2000;
 var totalBilled = (monthlyRate * monthsWorked);
 
-console.log(monthsWorked);
-console.log(totalBilled);
-
 
 // Capture Button Click
 $("#add-user").on("click", function (event) {
     event.preventDefault();
-
-    console.log("click");
 
     name = $("#name-input").val().trim();
     role = $("#role-input").val().trim();
@@ -47,27 +42,14 @@ $("#add-user").on("click", function (event) {
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
-    console.log(name);
-    console.log(role);
-    console.log(startDate);
-    console.log(monthlyRate);
 });
 database.ref().on("child_added", function (childSnapshot) {
 
     console.log(childSnapshot.val());
 
-    //Logging Employee Info
-    console.log(childSnapshot.val().name);
-    console.log(childSnapshot.val().role);
-    console.log(childSnapshot.val().start);
-    console.log(childSnapshot.val().rate);
-
     //Add Employee Info into the table 
-    $("#table-headers>tbody").append("<tr><td>" + (childSnapshot.val().name) + "</td><td>" + (childSnapshot.val().role) + "</td><td>" +
-        (childSnapshot.val().start) + "</td><td>" + monthsWorked + "</td><td>" + (childSnapshot.val().rate) + "</td><td>" + totalBilled + "</td></tr>");
-
-
-
+    $("#maintable").append("<tr><td scope='row'>" + (childSnapshot.val().name) + "</td><td scope='row'>" + (childSnapshot.val().role) + "</td><td scope='row'>" +
+        (childSnapshot.val().start) + "</td><td scope='row'>" + monthsWorked + "</td><td scope='row'>" + (childSnapshot.val().rate) + "</td><td scope='row'>" + totalBilled + "</td></tr>");
 
 });
 
