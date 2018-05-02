@@ -32,11 +32,11 @@ $("#add-user").on("click", function (event) {
         .val()
         .trim();
     // verify "moment" format is correct
-    // startDate = moment(
-    //  $("#start-input")
-    // .val()
-    // .trim()
-    // ).format("MM/DD/YYYY");
+    startDate = moment(
+        $("#start-input")
+        .val()
+        .trim()
+    ).format("MM/DD/YY");
     startDate = $("#start-input").val().trim();
     monthlyRate = $("#rate-input")
         .val()
