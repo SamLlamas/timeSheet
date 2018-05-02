@@ -1,11 +1,14 @@
 // Initialize Firebase
+
+console.log("sanity check");
+
 var config = {
-  apiKey: "AIzaSyBuYayypa6fprKzrNKspCJhoTXABwoZvW4",
-  authDomain: "timesheet-d7b77.firebaseapp.com",
-  databaseURL: "https://timesheet-d7b77.firebaseio.com",
-  projectId: "timesheet-d7b77",
-  storageBucket: "",
-  messagingSenderId: "395890372675"
+    apiKey: "AIzaSyBuYayypa6fprKzrNKspCJhoTXABwoZvW4",
+    authDomain: "timesheet-d7b77.firebaseapp.com",
+    databaseURL: "https://timesheet-d7b77.firebaseio.com",
+    projectId: "timesheet-d7b77",
+    storageBucket: "",
+    messagingSenderId: "395890372675"
 };
 firebase.initializeApp(config);
 
@@ -16,39 +19,42 @@ var name = "";
 var role = "";
 var startDate = 0;
 var monthlyRate = "";
-
 // Capture Button Click
-$("#add-user").on("click", function(event) {
-  event.preventDefault();
+$("#add-user").on("click", function (event) {
+    event.preventDefault();
 
-  name = $("#name-input")
-    .val()
-    .trim();
-  role = $("#role-input")
-    .val()
-    .trim();
-  // verify "moment" format is correct
-  startDate = moment(
-    $("#start-input")
-      .val()
-      .trim()
-  ).format("MM/DD/YYYY");
-  monthlyRate = $("#rate-input")
-    .val()
-    .trim();
+    console.log("click");
 
-  console.log(startDate);
+    name = $("#name-input")
+        .val()
+        .trim();
+    role = $("#role-input")
+        .val()
+        .trim();
+    // verify "moment" format is correct
+    startDate = moment(
+        $("#start-input")
+        .val()
+        .trim()
+    ).format("MM/DD/YY");
+    startDate = $("#start-input").val().trim();
+    monthlyRate = $("#rate-input")
+        .val()
+        .trim();
 
-  database.ref().push({
-    name: name,
-    role: role,
-    start: startDate,
-    rate: monthlyRate,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
-  });
+    console.log(startDate);
 
-  console.log(name.name);
-  console.log(role.role);
-  console.log(start.startDate);
-  console.log(rate.monthlyRate);
+
+    database.ref().push({
+        name: name,
+        role: role,
+        start: startDate,
+        rate: monthlyRate,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+
+    // console.log(name.name);
+    // console.log(role.role);
+    // console.log(start.startDate);
+    // console.log(rate.monthlyRate);
 });
