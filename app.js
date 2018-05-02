@@ -29,16 +29,18 @@ var database = firebase.database();
       
       name = $("#name-input").val().trim();
       role = $("#role-input").val().trim();
-      startDate = $(moment(("#start-input").val().trim()).format('MM/DD/YYYY'));
+      // verify "moment" format is correct
+      startDate = moment($("#start-input").val().trim()).format('MM/DD/YYYY');
       monthlyRate = $("#rate-input").val().trim();
 
-      
+      console.log(startDate);
 
       database.ref().push({
         name: name,
         role: role,
         start: startDate,
-        rate: monthlyRate
+        rate: monthlyRate,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
 
       console.log(name.name);
