@@ -1,6 +1,18 @@
 
 
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBuYayypa6fprKzrNKspCJhoTXABwoZvW4",
+    authDomain: "timesheet-d7b77.firebaseapp.com",
+    databaseURL: "https://timesheet-d7b77.firebaseio.com",
+    projectId: "timesheet-d7b77",
+    storageBucket: "",
+    messagingSenderId: "395890372675"
+  };
+  firebase.initializeApp(config);
+
+
 var database = firebase.database();
 
     // Initial Values
@@ -11,22 +23,30 @@ var database = firebase.database();
 
     // Capture Button Click
     $("#add-user").on("click", function(event) {
-      // Don't refresh the page!
+      
       event.preventDefault();
 
-      // YOUR TASK!!!
-      // Code in the logic for storing and retrieving the most recent user.
-      // Don't forget to provide initial data to your Firebase database.
+      
       name = $("#name-input").val().trim();
-      email = $("#email-input").val().trim();
-      age = $("#age-input").val().trim();
-      comment = $("#comment-input").val().trim();
+      role = $("#role-input").val().trim();
+      startDate = $(moment(("#start-input").val().trim()).format('MM/DD/YYYY'));
+      monthlyRate = $("#rate-input").val().trim();
+
+      
 
       database.ref().push({
         name: name,
-        email: email,
-        age: age,
-        comment: comment
+        role: role,
+        start: startDate,
+        rate: monthlyRate
       });
 
+      console.log(name.name);
+      console.log(role.role);
+      console.log(start.startDate);
+      console.log(rate.monthlyRate);
+
+
     });
+
+
