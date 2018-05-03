@@ -1,7 +1,3 @@
-// Initialize Firebase
-
-console.log("sanity check");
-
 var config = {
     apiKey: "AIzaSyBuYayypa6fprKzrNKspCJhoTXABwoZvW4",
     authDomain: "timesheet-d7b77.firebaseapp.com",
@@ -19,10 +15,10 @@ var name = "";
 var role = "";
 var startDate = "01/01/2001";
 var startFormat = "MM/DD/YYYY";
-var convertedDate = moment(startDate, startFormat);
-var monthsWorked = Math.abs(moment(convertedDate).diff(moment(), "months"));
-var monthlyRate = 2000;
-var totalBilled = ("$ " + (monthlyRate * monthsWorked));
+var monthlyRate = 0;
+var monthsWorked = 0;
+var totalBilled = ""
+
 
 
 // Capture Button Click
@@ -33,12 +29,18 @@ $("#add-user").on("click", function (event) {
     role = $("#role-input").val().trim();
     startDate = moment($("#start-input").val().trim()).format("MM/DD/YYYY");
     monthlyRate = $("#rate-input").val().trim();
+    var convertedDate = moment(startDate, startFormat);
+    monthsWorked = Math.abs(moment(convertedDate).diff(moment(), "months"));
+    totalBilled = ("$ " + (monthlyRate * monthsWorked));
+
 
     database.ref().push({
         name: name,
         role: role,
         start: startDate,
+        months: monthsWorked,
         rate: monthlyRate,
+        total: totalBilled,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
